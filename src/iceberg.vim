@@ -633,6 +633,20 @@ function! s:create_colors(palette) abort
         \ }))
   " }}}
 
+  " [Neovim built-in LSP](https://neovim.io/doc/user/lsp.html) {{{
+  " Neovim links LspInlayHint to NonText by default, which is nearly
+  " invisible on the Iceberg background. Use the comment color instead.
+  call extend(rules, pgmnt#hi#group(
+        \ 'LspInlayHint', {
+        \   'cterm': 'italic',
+        \   'ctermbg': c.cursorline_bg,
+        \   'ctermfg': c.comment_fg,
+        \   'gui': 'italic',
+        \   'guibg': g.cursorline_bg,
+        \   'guifg': g.comment_fg,
+        \ }))
+  " }}}
+
   " Palettes for statusline plugins {{{
   call extend(rules, pgmnt#hi#group(
         \ 'icebergALAccentRed', {
